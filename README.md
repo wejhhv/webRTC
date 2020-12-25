@@ -1,2 +1,2 @@
 # webRTC 
-This repository include files for a webRTC application under development.
+This repository includes files for a webRTC application under development.
