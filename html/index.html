@@ -1,27 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Serverless Meetings</title>
-    <script src="assets/js/amazon-chime-sdk.min.js"></script>
-    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
-    <style>
-      #video-list video {
-        width: 600px;
-        height: 400px;
-      }
-    </style>
-  </head>
-  <body>
-        <h1>Welcome to Serverless Meetings!</h1>
+<html lang="ja">
+    <head>
+        <meta charsert="UTF-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>ElmoTV</title>
+        <link rel="stylesheet" href="assets/css/bootstrap-4.5.0/bootstrap.css">
+        <script src="assets/js/amazon-chime-sdk.min.js"></script>
+        <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap-4.5.0/bootstrap.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+        <style>
+            #video-list video{
+                width: 600px;
+                height: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>ElmoTV</h1>
         <audio style="display: none" id="meeting-audio"></audio>
         <button type="button" id="start-button" style="display: none;"></button>
+        <button type="button" id="end-button" style="display: none;">End!</button>
+        <h3 id="today" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
 
+        </h3>
+        <div id="lesson" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+            <h3>本日の予定</h3>
+            <div id="lesson-item-wrapper">
+
+            </div>
+            <!-- <div id="time">時間：<span id="stime"></span>~<span id="etime"></span></div>
+            <div id="name">レッスン名：</div>
+            <div id="instructor">講師：</div> -->
+        </div>
+        <div id="plan" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+            <h3>今後の予定</h3>
+            
+        </div>
+        <div id="caution" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+            <h3>注意事項</h3>
+        </div>
+        <table class="table table-bordered" id="lesson-table">
+            <tr>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-info lesson">月-1</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">火-1</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">水-1</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">木-1</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">金-1</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-info lesson">月-2</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">火-2</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">水-2</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">木-2</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">金-2</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-info lesson">月-3</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">火-3</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">水-3</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">木-3</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">金-3</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-info lesson">月-4</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">火-4</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">水-4</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">木-4</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">金-4</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-info lesson">月-5</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">火-5</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">水-5</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">木-5</button>
+                </td>
+                <td>
+                    <button class="btn btn-info lesson">金-5</button>
+                </td>
+            </tr>
+        </table>
         <p id="meeting-link"></p>
         <div id="video-list">
 
         </div>
         <script src="assets/js/app.js"></script>
-  </body>
+    </body>
 </html>
